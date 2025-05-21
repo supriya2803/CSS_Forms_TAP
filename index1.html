@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
+    <style>
+        body {
+            color: white;
+            background: black;
+            background: radial-gradient(circle, rgb(96, 191, 255) 0%, rgb(68, 255, 171) 100%);
+            font-family: 'Product Sans', sans-serif;
+        }
+
+        form {
+            width: 700px;
+        }
+
+        fieldset {
+            border: 5px solid black;
+            border-radius: 25px;
+        }
+
+        input:required {
+            border: 2px solid red;
+        }
+
+        input:optional {
+            border: 2px dashed green;
+        }
+
+       
+
+        input[readonly] {
+            background-color: yellowgreen;
+            color: black;
+            font-weight: 700;
+        }
+
+        p {
+            display: none;
+        }
+
+        input:hover + p {
+            display: inline;
+            font-family: sans-serif;
+            background-color: pink;
+            color: black;
+        }
+
+        input:focus {
+            background-color: aqua;
+            color: wheat;
+        }
+
+        img {
+            display: none;
+        }
+
+        input[type="email"]:focus:valid ~ img.valid {
+            display: inline;
+            width: 10px;
+            height: 10px;
+        }
+
+        input[type="email"]:focus:invalid ~ img.invalid {
+            display: inline;
+            width: 15px;
+            height: 15px;
+        }
+
+        input[type="radio"]:checked {
+            width: 20px;
+            height: 20px;
+            
+        }
+
+        input[type="radio"]:checked + label {
+            color: navy;
+        }
+
+        input[type="submit"] {
+            border: 2px solid maroon;
+            border-radius: 20px;
+        }
+
+        select {
+            background-color: purple;
+            border-radius: 5px;
+            border: 2px solid black;
+            color: white;
+            width: 100px;
+            cursor: pointer;
+        }
+
+        input[name="age"]:focus:in-range:valid ~ img.valid {
+        display: inline;
+        width: 15px;
+        height: 15px;
+      }
+
+      input[name="age"]:focus:out-of-range:invalid ~ img.invalid {
+        display: inline;
+        width: 15px;
+        height: 15px;
+      }
+
+    </style>
+</head>
+<body>
+    <h1>Course Registration Form</h1>
+    <form action="">
+        <fieldset>
+            <legend>Personal details</legend>
+            <table>
+                <tr>
+                    <td><label>First Name</label></td>
+                    <td><input type="text" name="" placeholder="Ex:abc" maxlength="10" required> <p>Enter your Name</p>
+                   </td>
+                </tr>
+                <tr>
+                    <td><label>Surname</label></td>
+                    <td><input type="text" name="" placeholder="Ex:T" optional>
+                        <p>Enter Your Second Name</p></td>
+                </tr>
+                <tr>
+                    <td><label>Mobile number</label></td>
+                    <td><input type="tel" name="" placeholder="Ex:915-453-9862" required>
+                        <p>Enter Your Mobile Number</p></td>
+                </tr>
+                <tr>
+                    <td><label>Email</label></td>
+                    <td><input type="Email" name="" placeholder="Ex:abc@gmail.com" required>
+                        <p>Enter Your Email</p>
+                        <img class="valid" src="https://static.vecteezy.com/system/resources/previews/017/178/032/non_2x/round-cross-mark-symbol-with-transparent-background-free-png.png" >
+                        <img class="invalid" src="https://c8.alamy.com/comp/2ABNAN7/green-check-mark-icon-in-a-circle-tick-symbol-in-green-color-2ABNAN7.jpg" ><br></td>
+                </tr>
+                <tr>
+                    <td><label>Password</label></td>
+                    <td><input type="Password" name="" placeholder="min 8 characters" required> 
+                        <p>Include atleast 8 characters</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Confirm Password</label></td>
+                    <td><input type="Password" name="" placeholder="min 8 characters"  required><br></td>
+                </tr>
+                <tr>
+                    <td><label>DOB</label></td>
+                    <td><input type="date" name="" required><br></td>
+                </tr>
+                <tr>
+                    <td><label>AGE</label></td>
+                    <td><input type="number" name="age" required min="18">
+                </tr>
+                <tr>
+                    <td><label>Gender</label></td>
+                    <td><input type="radio" name="gender" value="M"><label>Male</label>
+                        <input type="radio" name="gender" value="F"><label >Female</label>
+                        <input type="radio" name="gender" value="O"><label >Others</label></td>
+                </tr>
+                <tr>
+                    <td>Select Country</td>
+                    <td>
+                        <select name="Country">
+                            <option class="opt" value="INDIA">INDIA</option>
+                            <option class="opt" value="USSR">USSR</option>
+                            <option class="opt" value="China">China</option>
+                            <option class="opt" value="USA">USA</option>
+                        </select><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Upload Picture</label></td>
+                    <td><input type="file" name=""><br></td>
+                </tr>
+                <tr>
+                    <td><input type="reset"></td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Course Details</legend>
+            <legend>Select Course</legend>
+            <select name="Course">
+                <option value="">Python Full Stack</option>
+                <option value="">Java Full Stack</option>
+                <option value="">MERN Stack</option>
+            </select><br>
+            <label>Delivery Mode</label>
+            <input type="radio" name="mode" value=""><label for="">ONLINE</label>
+            <input type="radio" name="mode" value=""><label for="">OFFLINE </label><br><br>
+            <label>INSTITUTE NAME:</label>
+            <input type="text" value="TAP ACADEMY" readonly><br>
+            <label>Comments</label><br>
+            <textarea rows="3" cols="50"></textarea>
+        </fieldset>
+        <input type="submit" name="" id="" />
+    </form>
+</body>
+</html>
